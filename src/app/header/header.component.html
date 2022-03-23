@@ -1,0 +1,40 @@
+<header>
+  <mat-toolbar id="header" class="toolbar">
+    <img
+      src="assets/header/logo.svg"
+      title="鳳櫻祭ロゴ"
+      alt="2021 鳳櫻祭"
+      id="logo"
+      width="420"
+      height="176"
+      routerLink=""
+    />
+
+    <button mat-button routerLink="" [disabled]="isHome" class="push">
+      ホーム
+    </button>
+    <button mat-button routerLink="maps" [disabled]="isMaps">マップ</button>
+    <button mat-button routerLink="timetable" [disabled]="isTimetable">
+      タイムテーブル
+    </button>
+    <button mat-button routerLink="contents" [disabled]="isContents">
+      コンテンツ
+    </button>
+    <button mat-button routerLink="" [disabled]="true">
+      ミュージアム
+      <img
+        src="assets/COMING_SOON.svg"
+        alt="無効化されています"
+        class="disabled-image"
+      />
+    </button>
+    <button
+      mat-icon-button
+      (click)="onToggleSidenav()"
+      class="push"
+      aria-label="ナビゲーションメニュー"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>

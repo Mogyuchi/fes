@@ -1,0 +1,46 @@
+name: Release CI
+
+on:
+  push:
+    branches: [production]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.13.0]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Node.js ${{ matrix.node-version }} をセットアップ
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 依存パッケージをインストール
+        run: npm ci
+
+      - name: Angularのビルド
+        run: npm run build -- --configuration production
+
+      - name: SSGのビルド
+        run: npx scully
+
+      - name: npm のバージョンを取得
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+
+      - name: 生成物をzip化
+        run: |
+          cd ./dist/static
+          zip -r v${{ steps.package-version.outputs.current-version }}.zip .
+      - name: リリースを作成
+        uses: ncipollo/release-action@v1
+        with:
+          tag: v${{ steps.package-version.outputs.current-version }}
+          commit: ${{ github.sha }}
+          artifacts: "./dist/static/v${{ steps.package-version.outputs.current-version}}.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}

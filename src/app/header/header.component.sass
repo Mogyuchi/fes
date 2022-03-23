@@ -1,0 +1,45 @@
+#header
+  display: flex
+  position: fixed
+  will-change: transform
+  height: 64px
+  color: #fff
+  background-color: #0083A7
+  flex-wrap: wrap
+  top: 0
+  left: 0
+  right: 0
+  z-index: 2
+
+#logo
+  position: absolute
+  top: 0
+  left: 0
+  width: clamp(220px, 35vw, 370px)
+  height: auto
+  transform: translateY(calc(-35vw * 0.17 / 4)) rotate(-10deg)
+  filter: drop-shadow(0 2px 1.5px #004152)
+
+button
+  font-size: 23px
+  font-weight: 700
+
+.push
+  margin-left: auto
+
+.mat-icon-button
+  display: none
+
+@media(max-width: 1169px)
+  .mat-button
+    display: none
+  .mat-icon-button
+    display: block
+
+@media(min-width: calc(370px / 35 * 100))
+  #logo
+    transform: translateY(-18px) rotate(-10deg)
+
+@media(max-width: calc(220px / 35 * 100))
+  #logo
+    transform: translateY(-10px) rotate(-10deg)

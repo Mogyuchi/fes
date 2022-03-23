@@ -1,0 +1,206 @@
+<h1>コンテンツ</h1>
+<mat-slide-toggle [checked]="includeProtected" (change)="onChange($event)">
+  パスワード保護下のものを含める
+</mat-slide-toggle>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>硬式野球部</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="aspect-ratio">
+      <iframe
+        title="vimeo-player"
+        src="https://player.vimeo.com/video/638110449?h=b791ed4445"
+        width="640"
+        height="1137"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>マーメイドボーイズ</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="aspect-ratio">
+      <iframe
+        title="vimeo-player"
+        src="https://player.vimeo.com/video/639028288?h=554c777db4"
+        width="640"
+        height="1137"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>中・高等科吹奏楽団</mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="aspect-ratio">
+      <iframe
+        title="vimeo-player"
+        src="https://player.vimeo.com/video/637824302?h=7cb04c308d"
+        width="640"
+        height="1137"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>高2総合「写真を撮る・見る」</mat-panel-title>
+    </mat-expansion-panel-header>
+    <a
+      mat-raised-button
+      href="https://spark.adobe.com/page/Mnb5jTdrELlop/"
+      target="_blank"
+      ><img src="assets/groups/sougou-picture/pic.JPG"
+    /></a>
+    ↑クリックすると外部でリンクが開きます。
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>高2総合「演劇入門」</mat-panel-title>
+    </mat-expansion-panel-header>
+    <embed
+      src="assets/groups/sougou-theater/poster.pdf"
+      type="application/pdf"
+      width="100%"
+      height="100%"
+    />
+  </mat-expansion-panel>
+  <mat-expansion-panel *ngIf="includeProtected">
+    <mat-expansion-panel-header>
+      <mat-panel-title
+        >高2総合「演劇入門」<mat-icon aria-hidden="false" aria-label="protected"
+          >lock</mat-icon
+        ></mat-panel-title
+      >
+    </mat-expansion-panel-header>
+    <a
+      mat-raised-button
+      href="https://vimeo.com/630109685"
+      target="_blank"
+      aria-label="Vimeoを開きます"
+      matTooltip="外部リンクを開きます"
+    >
+      Vimeo「曇りの先に」<mat-icon>open_in_new</mat-icon>
+    </a>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>生物部</mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>
+      こんにちは！高等科生物部です！<br />
+      今回の生物部はスーパーで売っている柿から天然の酵母菌を取り出してみました！<br />
+      酵母菌はパンやワイン、醤油などで我々と深く関わりのある菌です。そんな菌が簡単に取れるのか！と思ったそこのあなた！実は取れるんです。<br />
+      手順は簡単で、消毒した密閉容器の中に細かくした柿と酵母の養分となる砂糖、そして水を入れれば大丈夫です！あとは自然に酵母が増えていきます。酵母は暖かい方が増えやすいので、ご家庭で増やす際は夏に行うことをお勧めしますよ！<br />
+      ある程度酵母が増えてきているだろうな、と感じた時に培地を作り、そこに柿の溶液を塗りました。すると数日後、画像④のようなコロニー(菌の集合体)が発生していました！<br />
+      これを顕微鏡で観察すると、画像⑥のように小さな酵母菌達が沢山いました！こう見るとなかなか可愛いですよね。<br />
+      比較用に画像⑤はスーパーで売っている製パン用のドライイーストの顕微鏡での写真です。是非見比べてみて下さい。<br />
+      ちなみに、顕微鏡の1目盛は2.5μmですよ！<br />
+      自宅でもできるので、是非挑戦してみて下さいね！
+    </p>
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab weight="3em">
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="false" aria-label="写真1枚目"
+            >looks_one</mat-icon
+          >
+        </ng-template>
+        <img src="assets/groups/biology/1.jpg" alt="生物部写真1枚目" />
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="false" aria-label="写真2枚目"
+            >looks_two</mat-icon
+          >
+        </ng-template>
+        <img src="assets/groups/biology/2.jpg" alt="生物部写真2枚目" />
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="false" aria-label="写真3枚目"
+            >looks_3</mat-icon
+          >
+        </ng-template>
+        <img src="assets/groups/biology/4.jpg" alt="生物部写真3枚目" />
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="false" aria-label="写真4枚目"
+            >looks_4</mat-icon
+          >
+        </ng-template>
+        <img src="assets/groups/biology/3.jpg" alt="生物部写真4枚目" />
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="false" aria-label="写真5枚目"
+            >looks_5</mat-icon
+          >
+        </ng-template>
+        <img src="assets/groups/biology/5.jpg" alt="生物部写真5枚目" />
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon aria-hidden="false" aria-label="写真6枚目"
+            >looks_6</mat-icon
+          >
+        </ng-template>
+        <img src="assets/groups/biology/6.jpg" alt="生物部写真6枚目" />
+      </mat-tab>
+    </mat-tab-group>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>文藝部</mat-panel-title>
+    </mat-expansion-panel-header>
+    <ngx-extended-pdf-viewer
+      [src]="'assets/groups/literature/literature.pdf'"
+      [height]="'800px'"
+      backgroundColor="#ffffff"
+      [useBrowserLocale]="true"
+      [showToolbar]="true"
+      [showSidebarButton]="true"
+      [showFindButton]="true"
+      [showPagingButtons]="true"
+      [showZoomButtons]="true"
+      [showPresentationModeButton]="true"
+      [showOpenFileButton]="false"
+      [showPrintButton]="false"
+      [showDownloadButton]="true"
+      [showBookmarkButton]="false"
+      [showSecondaryToolbarButton]="true"
+      [showRotateButton]="false"
+      [showHandToolButton]="false"
+      [showScrollingButton]="true"
+      [showSpreadButton]="true"
+      [showPropertiesButton]="false"
+      [textLayer]="true"
+      [zoom]="'page-width'"
+    ></ngx-extended-pdf-viewer>
+  </mat-expansion-panel>
+  <mat-expansion-panel *ngIf="includeProtected">
+    <mat-expansion-panel-header>
+      <mat-panel-title
+        >Abiete Sub Theatrum<mat-icon aria-hidden="false" aria-label="protected"
+          >lock</mat-icon
+        ></mat-panel-title
+      >
+    </mat-expansion-panel-header>
+    <a
+      mat-raised-button
+      href="https://vimeo.com/641761301"
+      target="_blank"
+      aria-label="Vimeoを開きます"
+      matTooltip="外部リンクを開きます"
+    >
+      Vimeo「川の中の英雄」<mat-icon>open_in_new</mat-icon>
+    </a>
+  </mat-expansion-panel>
+</mat-accordion>

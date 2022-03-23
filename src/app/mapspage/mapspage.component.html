@@ -1,0 +1,290 @@
+<div class="volume-slider">
+  <mat-slider
+    vertical
+    (change)="volumePosChanged($event)"
+    [min]="0"
+    step="0.01"
+    max="1"
+    style="max-height: calc(100%-1rem)"
+    value="{{ gainValue }}"
+  ></mat-slider>
+  <button mat-icon-button aria-label="Audio button" (click)="onToggleMute()">
+    <mat-icon *ngIf="!isMute">volume_up</mat-icon>
+    <mat-icon *ngIf="isMute">volume_mute</mat-icon>
+  </button>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title><div id="title">凡例</div></mat-panel-title>
+    </mat-expansion-panel-header>
+    <img
+      id="legend"
+      src="assets/maps/legend.svg"
+      height="481.2px"
+      width="644.1px"
+    />
+  </mat-expansion-panel>
+</mat-accordion>
+<img
+  id="canpus"
+  src="assets/maps/campus.svg"
+  height="481.2px"
+  width="644.1px"
+/>
+<img src="assets/maps/night.svg" height="481.2px" width="644.1px" />
+<img class="floor" src="assets/maps/1.svg" height="315px" width="644.1px" />
+
+<audio
+  loop
+  #audioPlayer1
+  (play)="onPaly(audioPlayer1)"
+  src="assets/maps/1.mp3"
+></audio>
+<button
+  (click)="playBtnHandler(1)"
+  [disabled]="loaderDisplay"
+  class="play-pause"
+  matTooltip="階の装飾をもとにした音楽"
+  matTooltipPosition="left"
+  mat-button
+>
+  <mat-spinner *ngIf="loaderDisplay" diameter="22"></mat-spinner>
+
+  <mat-icon
+    *ngIf="!loaderDisplay && !isPlaying1"
+    aria-hidden="true"
+    class="play-track"
+  >
+    play_arrow
+  </mat-icon>
+  <mat-icon
+    *ngIf="!loaderDisplay && isPlaying1"
+    aria-hidden="true"
+    class="pause-track"
+  >
+    pause
+  </mat-icon>
+  聴いてみる！
+</button>
+
+<div class="pos-control">
+  <span *ngIf="duration1 !== 0.01">
+    {{ currentTime1 | secondsToMinutes }}
+  </span>
+  <mat-slider
+    (change)="currTimePosChanged($event, 1)"
+    [min]="0"
+    class="slider"
+    max="{{ duration1 }}"
+    value="{{ currentTime1 }}"
+  ></mat-slider>
+
+  <span *ngIf="duration1 !== 0.01">
+    -{{ duration1 - currentTime1 | secondsToMinutes }}
+  </span>
+</div>
+<img class="floor" src="assets/maps/2.svg" height="481.2px" width="644.1px" />
+<audio
+  loop
+  #audioPlayer2
+  (play)="onPaly(audioPlayer2)"
+  src="assets/maps/2.mp3"
+></audio>
+<button
+  (click)="playBtnHandler(2)"
+  [disabled]="loaderDisplay"
+  class="play-pause"
+  matTooltip="階の装飾をもとにした音楽"
+  matTooltipPosition="left"
+  mat-button
+>
+  <mat-spinner *ngIf="loaderDisplay" diameter="22"></mat-spinner>
+
+  <mat-icon
+    *ngIf="!loaderDisplay && !isPlaying2"
+    aria-hidden="true"
+    class="play-track"
+  >
+    play_arrow
+  </mat-icon>
+  <mat-icon
+    *ngIf="!loaderDisplay && isPlaying2"
+    aria-hidden="true"
+    class="pause-track"
+  >
+    pause
+  </mat-icon>
+  聴いてみる！
+</button>
+
+<div class="pos-control">
+  <span *ngIf="duration2 !== 0.01">
+    {{ currentTime2 | secondsToMinutes }}
+  </span>
+  <mat-slider
+    (change)="currTimePosChanged($event, 2)"
+    [min]="0"
+    class="slider"
+    max="{{ duration2 }}"
+    value="{{ currentTime2 }}"
+  ></mat-slider>
+
+  <span *ngIf="duration2 !== 0.01">
+    -{{ duration2 - currentTime2 | secondsToMinutes }}
+  </span>
+</div>
+
+<img class="floor" src="assets/maps/3.svg" height="481.2px" width="644.1px" />
+<audio
+  loop
+  #audioPlayer3
+  (play)="onPaly(audioPlayer3)"
+  src="assets/maps/3.mp3"
+></audio>
+<button
+  (click)="playBtnHandler(3)"
+  [disabled]="loaderDisplay"
+  class="play-pause"
+  matTooltip="階の装飾をもとにした音楽"
+  matTooltipPosition="left"
+  mat-button
+>
+  <mat-spinner *ngIf="loaderDisplay" diameter="22"></mat-spinner>
+
+  <mat-icon
+    *ngIf="!loaderDisplay && !isPlaying3"
+    aria-hidden="true"
+    class="play-track"
+  >
+    play_arrow
+  </mat-icon>
+  <mat-icon
+    *ngIf="!loaderDisplay && isPlaying3"
+    aria-hidden="true"
+    class="pause-track"
+  >
+    pause
+  </mat-icon>
+  聴いてみる！
+</button>
+
+<div class="pos-control">
+  <span *ngIf="duration3 !== 0.01">
+    {{ currentTime3 | secondsToMinutes }}
+  </span>
+  <mat-slider
+    (change)="currTimePosChanged($event, 3)"
+    [min]="0"
+    class="slider"
+    max="{{ duration3 }}"
+    value="{{ currentTime3 }}"
+  ></mat-slider>
+
+  <span *ngIf="duration3 !== 0.01">
+    -{{ duration3 - currentTime3 | secondsToMinutes }}
+  </span>
+</div>
+
+<img class="floor" src="assets/maps/4.svg" height="481.2px" width="644.1px" />
+<audio
+  loop
+  #audioPlayer4
+  (play)="onPaly(audioPlayer4)"
+  src="assets/maps/4.mp3"
+></audio>
+<button
+  (click)="playBtnHandler(4)"
+  [disabled]="loaderDisplay"
+  class="play-pause"
+  matTooltip="階の装飾をもとにした音楽"
+  matTooltipPosition="left"
+  mat-button
+>
+  <mat-spinner *ngIf="loaderDisplay" diameter="22"></mat-spinner>
+
+  <mat-icon
+    *ngIf="!loaderDisplay && !isPlaying4"
+    aria-hidden="true"
+    class="play-track"
+  >
+    play_arrow
+  </mat-icon>
+  <mat-icon
+    *ngIf="!loaderDisplay && isPlaying4"
+    aria-hidden="true"
+    class="pause-track"
+  >
+    pause
+  </mat-icon>
+  聴いてみる！
+</button>
+
+<div class="pos-control">
+  <span *ngIf="duration4 !== 0.01">
+    {{ currentTime4 | secondsToMinutes }}
+  </span>
+  <mat-slider
+    (change)="currTimePosChanged($event, 4)"
+    [min]="0"
+    class="slider"
+    max="{{ duration4 }}"
+    value="{{ currentTime4 }}"
+  ></mat-slider>
+
+  <span *ngIf="duration4 !== 0.01">
+    -{{ duration4 - currentTime4 | secondsToMinutes }}
+  </span>
+</div>
+
+<img class="floor" src="assets/maps/5.svg" height="288px" width="644.1px" />
+<audio
+  loop
+  #audioPlayer5
+  (play)="onPaly(audioPlayer5)"
+  src="assets/maps/5.mp3"
+></audio>
+<button
+  (click)="playBtnHandler(5)"
+  [disabled]="loaderDisplay"
+  class="play-pause"
+  matTooltip="階の装飾をもとにした音楽"
+  matTooltipPosition="left"
+  mat-button
+>
+  <mat-spinner *ngIf="loaderDisplay" diameter="22"></mat-spinner>
+
+  <mat-icon
+    *ngIf="!loaderDisplay && !isPlaying5"
+    aria-hidden="true"
+    class="play-track"
+  >
+    play_arrow
+  </mat-icon>
+  <mat-icon
+    *ngIf="!loaderDisplay && isPlaying5"
+    aria-hidden="true"
+    class="pause-track"
+  >
+    pause
+  </mat-icon>
+  聴いてみる！
+</button>
+
+<div class="pos-control">
+  <span *ngIf="duration5 !== 0.01">
+    {{ currentTime5 | secondsToMinutes }}
+  </span>
+  <mat-slider
+    (change)="currTimePosChanged($event, 5)"
+    [min]="0"
+    class="slider"
+    max="{{ duration5 }}"
+    value="{{ currentTime5 }}"
+  ></mat-slider>
+
+  <span *ngIf="duration5 !== 0.01">
+    -{{ duration5 - currentTime5 | secondsToMinutes }}
+  </span>
+</div>

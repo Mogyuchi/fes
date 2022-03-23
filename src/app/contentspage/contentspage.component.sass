@@ -1,0 +1,49 @@
+:host
+  display: flex
+  padding: 10px
+  width: 100%
+  background-color: #004152
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+
+h1
+  color: #fafafa
+  margin-top: 2.5rem
+  margin-bottom: 0rem
+
+mat-slide-toggle
+  margin-bottom: 2rem
+
+mat-accordion
+  width: min(640px, 100%)
+
+.aspect-ratio
+  position: relative
+  width: 100%
+  height: 0
+  padding-bottom: calc(1137 / 640 * 100%)
+
+  iframe
+    position: absolute
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
+
+img
+  width: 100%
+
+:host ::ng-deep .mat-tab-label
+  min-width: 2em
+  flex-grow: 1
+
+:host ::ng-deep .mat-slide-toggle-content
+  color: #dadada
+
+::ng-deep button#download,
+::ng-deep button#download * 
+  display: block !important
+
+::ng-deep #toolbarViewerMiddle 
+  display: none

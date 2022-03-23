@@ -1,0 +1,33 @@
+<app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation" position="end">
+    <mat-nav-list>
+      <mat-list-item routerLink="" (click)="sidenav.close()">
+        ホーム
+      </mat-list-item>
+      <mat-list-item routerLink="maps" (click)="sidenav.close()">
+        マップ
+      </mat-list-item>
+      <mat-list-item routerLink="timetable" (click)="sidenav.close()">
+        タイムテーブル
+      </mat-list-item>
+      <mat-list-item routerLink="contents" (click)="sidenav.close()">
+        コンテンツ
+      </mat-list-item>
+      <mat-list-item (click)="sidenav.close()">
+        ミュージアム
+        <img
+          src="assets/COMING_SOON.svg"
+          alt="無効化されています"
+          class="disabled-image"
+        />
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

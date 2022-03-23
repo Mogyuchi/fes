@@ -1,0 +1,51 @@
+<h1>タイムテーブル</h1>
+<mat-slide-toggle [checked]="displayAll" (change)="onChange($event)">
+  一覧表示
+</mat-slide-toggle>
+<mat-form-field appearance="fill" color="accent" *ngIf="!displayAll">
+  <mat-label>時間帯</mat-label>
+  <mat-select [(value)]="selected" (selectionChange)="change()">
+    <mat-option value="firstMorning">30日第1部</mat-option>
+    <mat-option value="firstAfternoon">30日第2部</mat-option>
+    <mat-option value="secondMorning">31日第1部</mat-option>
+    <mat-option value="secondAfternoon">31日第2部</mat-option>
+  </mat-select>
+</mat-form-field>
+<div class="date" *ngIf="displayAll">10月30日</div>
+<div
+  class="timetable-container mat-elevation-z8"
+  *ngIf="selected == 'firstMorning' || displayAll"
+>
+  <div class="axis" cdkDragLockAxis="x" cdkDrag>
+    <div class="time" *ngFor="let amTime of amTimes">{{ amTime }}</div>
+  </div>
+  <app-timetable-first-morning></app-timetable-first-morning>
+</div>
+<div
+  class="timetable-container mat-elevation-z8"
+  *ngIf="selected == 'firstAfternoon' || displayAll"
+>
+  <div class="axis" cdkDragLockAxis="x" cdkDrag>
+    <div class="time" *ngFor="let pmTime of pmTimes">{{ pmTime }}</div>
+  </div>
+  <app-timetable-first-afternoon></app-timetable-first-afternoon>
+</div>
+<div class="date" *ngIf="displayAll">10月31日</div>
+<div
+  class="timetable-container mat-elevation-z8"
+  *ngIf="selected == 'secondMorning' || displayAll"
+>
+  <div class="axis" cdkDragLockAxis="x" cdkDrag>
+    <div class="time" *ngFor="let amTime of amTimes">{{ amTime }}</div>
+  </div>
+  <app-timetable-second-morning></app-timetable-second-morning>
+</div>
+<div
+  class="timetable-container mat-elevation-z8"
+  *ngIf="selected == 'secondAfternoon' || displayAll"
+>
+  <div class="axis" cdkDragLockAxis="x" cdkDrag>
+    <div class="time" *ngFor="let pmTime of pmTimes">{{ pmTime }}</div>
+  </div>
+  <app-timetable-second-afternoon></app-timetable-second-afternoon>
+</div>

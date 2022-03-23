@@ -1,0 +1,11 @@
+identifier: ket4e0l7tfqfz4g6
+allowErrorCollect: false
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: hououfes
+homeFolder: /home/mogyuchi/projects/hououfes
+distFolder: dist/hououfes
+outDir: /home/mogyuchi/projects/hououfes/dist/static
+handle404: ""
